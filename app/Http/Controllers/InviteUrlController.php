@@ -51,7 +51,7 @@ class InviteUrlController extends Controller
 
     public function redirectByCode($code): RedirectResponse
     {
-        $find = InviteUrl::where('code', '=', 'vvJGrCOH')->first();
+        $find = InviteUrl::where('code', '=', $code)->first();
 
         if (Carbon::now()->greaterThan($find->expires_at)) {
             abort(404);
